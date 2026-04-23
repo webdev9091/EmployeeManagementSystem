@@ -1,0 +1,87 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row mb-3"></div>
+  <div *ngIf="employee$ | async as employee; else loading" class="w-100">
+    <div class="row mb-3">
+      <label for="colFormLabel" class="col-sm-2 col-form-label">Emp No</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control readonly"
+          id="colFormLabel"
+          placeholder="Emp No"
+          [value]="employee.empNo"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="colFormLabel" class="col-sm-2 col-form-label">Emp Name</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control readonly"
+          id="colFormLabel"
+          placeholder="Emp Name"
+          [value]="employee.empName"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="colFormLabel" class="col-sm-2 col-form-label">Emp Email</label>
+      <div class="col-sm-10">
+        <input
+          type="email"
+          class="form-control readonly"
+          id="colFormLabel"
+          placeholder="Emp Email"
+          [value]="employee.empEmail"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="colFormLabel" class="col-sm-2 col-form-label">Emp Mobile</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control readonly"
+          id="colFormLabel"
+          placeholder="Emp Mobile"
+          [value]="employee.empMobile"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="colFormLabel" class="col-sm-2 col-form-label">Emp Salary</label>
+      <div class="col-sm-10">
+        <input
+          type="number"
+          class="form-control readonly"
+          id="colFormLabel"
+          placeholder="Emp Salary"
+          [value]="employee.salary"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="colFormLabel" class="col-sm-2 col-form-label">Emp Location</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control readonly"
+          id="colFormLabel"
+          placeholder="Emp Location"
+          [value]="employee.location"
+          readonly
+        />
+      </div>
+    </div>
+  </div>
+  <ng-template #loading>
+    <div class="alert alert-info" role="alert">Loading employee details...</div>
+  </ng-template>
+</div>

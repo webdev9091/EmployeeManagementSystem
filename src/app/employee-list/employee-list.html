@@ -1,0 +1,33 @@
+<div *ngIf="(employees() | slice: 0).length === 0" class="alert alert-info" role="alert">
+  Loading employees...
+</div>
+<table class="table" *ngIf="(employees() | slice: 0).length > 0">
+  <thead>
+    <tr>
+      <th scope="col">Emp No</th>
+      <th scope="col">Emp Name</th>
+      <th scope="col">Emp Mob</th>
+      <th scope="col">Emp Location</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employees()">
+      <td>{{ emp.empNo }}</td>
+      <td>{{ emp.empName }}</td>
+      <td>{{ emp.empMobile }}</td>
+      <td>{{ emp.location }}</td>
+      <td>
+        <a href="/view-employee/{{ emp.empNo }}"
+          ><mat-icon aria-hidden="false" aria-label="Add Employee" fontIcon="visibility"></mat-icon
+        ></a>
+        <a href="/update-employee/{{ emp.empNo }}"
+          ><mat-icon aria-hidden="false" aria-label="update Employee" fontIcon="edit"></mat-icon
+        ></a>
+        <a href="">
+          <mat-icon aria-hidden="false" aria-label="delete Employee" fontIcon="delete"></mat-icon>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
