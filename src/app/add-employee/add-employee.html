@@ -2,36 +2,86 @@
 <div class="container">
   <div class="row mb-3"></div>
   <div class="row mb-3">
-    <label for="colFormLabel" class="col-sm-2 col-form-label">Emp Name</label>
+    <label for="empName" class="col-sm-2 col-form-label">Emp Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="colFormLabel" placeholder="Emp Name" />
+      <input
+        type="text"
+        class="form-control"
+        id="empName"
+        placeholder="Emp Name"
+        [value]="employee().empName"
+        (input)="employee().empName = $any($event.target).value"
+      />
     </div>
   </div>
   <div class="row mb-3">
-    <label for="colFormLabel" class="col-sm-2 col-form-label">Emp Email</label>
+    <label for="empEmail" class="col-sm-2 col-form-label">Emp Email</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="colFormLabel" placeholder="Emp Email" />
+      <input
+        type="email"
+        class="form-control"
+        id="empEmail"
+        placeholder="Emp Email"
+        [value]="employee().empEmail"
+        (input)="employee().empEmail = $any($event.target).value"
+      />
     </div>
   </div>
   <div class="row mb-3">
-    <label for="colFormLabel" class="col-sm-2 col-form-label">Emp Moblie</label>
+    <label for="empMobile" class="col-sm-2 col-form-label">Emp Mobile</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="colFormLabel" placeholder="Emp Moblie" />
+      <input
+        type="text"
+        class="form-control"
+        id="empMobile"
+        placeholder="Emp Mobile"
+        [value]="employee().empMobile"
+        (input)="employee().empMobile = $any($event.target).value"
+      />
     </div>
   </div>
   <div class="row mb-3">
-    <label for="colFormLabel" class="col-sm-2 col-form-label">Emp Salary</label>
+    <label for="empSalary" class="col-sm-2 col-form-label">Emp Salary</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control" id="colFormLabel" placeholder="Emp Salary" />
+      <input
+        type="number"
+        class="form-control"
+        id="empSalary"
+        placeholder="Emp Salary"
+        [value]="employee().salary"
+        (input)="employee().salary = $any($event.target).valueAsNumber"
+      />
     </div>
   </div>
   <div class="row mb-3">
-    <label for="colFormLabel" class="col-sm-2 col-form-label">Emp Location</label>
+    <label for="empLocation" class="col-sm-2 col-form-label">Emp Location</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="colFormLabel" placeholder="Emp Location" />
+      <input
+        type="text"
+        class="form-control"
+        id="empLocation"
+        placeholder="Emp Location"
+        [value]="employee().location"
+        (input)="employee().location = $any($event.target).value"
+      />
     </div>
   </div>
-  <div class="d-flex justify-content-center">
-    <button type="button" class="btn btn-success">Submit</button>
+  <div class="d-flex justify-content-center gap-2">
+    <button
+      type="button"
+      (click)="addEmployee()"
+      [disabled]="isSubmitting()"
+      class="btn btn-success"
+    >
+      {{ isSubmitting() ? 'Submitting...' : 'Submit' }}
+    </button>
+    <button
+      type="button"
+      (click)="resetForm()"
+      [disabled]="isSubmitting()"
+      class="btn btn-secondary"
+    >
+      Reset
+    </button>
   </div>
 </div>

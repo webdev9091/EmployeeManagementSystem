@@ -43,4 +43,19 @@ export class EmployeeList implements OnInit {
         },
       });
   }
+
+  deleteEmployee(empNo: any) {
+    if (confirm('Are you sure you want to delete this employee?')) {
+      this.employeeService.deleteEmployee(empNo).subscribe({
+        next: () => {
+          alert('Employee deleted successfully!');
+          this.getEmployees(); // Refresh the list after deletion
+        },
+        error: (err) => {
+          console.error('Error deleting employee:', err);
+          alert('Error deleting employee: ' + err.message);
+        },
+      });
+    }
+  }
 }
